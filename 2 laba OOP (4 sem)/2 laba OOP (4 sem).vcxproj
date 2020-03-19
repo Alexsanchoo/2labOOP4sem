@@ -115,38 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Computer.cpp" />
-    <ClCompile Include="ComputerMouse.cpp" />
-    <ClCompile Include="Cooler.cpp" />
-    <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Monitor.cpp" />
-    <ClCompile Include="Motherboard.cpp" />
-    <ClCompile Include="NetworkCard.cpp" />
-    <ClCompile Include="PeripheralDeviceManager.cpp" />
-    <ClCompile Include="PowerSupply.cpp" />
-    <ClCompile Include="Processor.cpp" />
-    <ClCompile Include="RAM.cpp" />
-    <ClCompile Include="SoundCard.cpp" />
-    <ClCompile Include="VideoCard.cpp" />
-    <ClCompile Include="Winchester.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Bitness.h" />
-    <ClInclude Include="Computer.h" />
-    <ClInclude Include="ComputerMouse.h" />
-    <ClInclude Include="Cooler.h" />
-    <ClInclude Include="Keyboard.h" />
-    <ClInclude Include="Monitor.h" />
-    <ClInclude Include="Motherboard.h" />
-    <ClInclude Include="NetworkCard.h" />
-    <ClInclude Include="PeripheralDeviceManager.h" />
-    <ClInclude Include="PowerSupply.h" />
-    <ClInclude Include="Processor.h" />
-    <ClInclude Include="RAM.h" />
-    <ClInclude Include="SoundCard.h" />
-    <ClInclude Include="VideoCard.h" />
-    <ClInclude Include="Winchester.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
