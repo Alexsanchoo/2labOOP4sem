@@ -15,6 +15,11 @@ void ElectricalDevices::setType(TypeGood type)
 	this->type = type;
 }
 
+void ElectricalDevices::setCount(int count)
+{
+	this->count = count;
+}
+
 string ElectricalDevices::getName()
 {
 	return name;
@@ -28,4 +33,9 @@ double ElectricalDevices::getCost()
 TypeGood ElectricalDevices::getType()
 {
 	return type;
+}
+
+int ElectricalDevices::getCount()
+{
+	return count;
 }

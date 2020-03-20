@@ -1,5 +1,8 @@
 #include<iostream>
 #include<Windows.h>
+#include "Shop.h"
+#include "ClientData.h"
+#include "Order.h"
 
 using namespace std;
 
@@ -33,19 +36,19 @@ int main()
 	SetConsoleOutputCP(1251);
 	cin.exceptions(ios::failbit | ios::badbit);
 	
+	Shop shop("Электро-экспресс");
+	ClientData clientData("Василий", "Пупкин", "ул. Пушкина, д. Колотушкина", 228543573);
+	Order order(&clientData);
+		
 	int choice = 0;
-	while (choice != 8)
+	while (choice != 4)
 	{
-		cout << "~~~СБОРКА КОМПЬЮТЕРА~~~" << endl;
-		cout << "1. Оперативная память" << endl;
-		cout << "2. Жесткий диск" << endl;
-		cout << "3. Блок питания" << endl;
-		cout << "4. Система охлаждения процессора" << endl;
-		cout << "5. Периферийные устройства" << endl;
-		cout << "6. Материнская плата" << endl;
-		cout << "7. Включить компьютер" << endl;
-		cout << "8. Выход" << endl;
-		cout << "~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+		cout << "~~~~~" << shop.getName() << "~~~~" << endl;
+		cout << "1. Добавить товар в ассортимент" << endl;
+		cout << "2. Просмотреть ассортимент" << endl;
+		cout << "3. Оформить заказ" << endl;
+		cout << "4. Выход." << endl;
+		cout << "~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 		cout << "Сделайте выбор: ";
 		choice = 0; //изменить
 
@@ -55,29 +58,16 @@ int main()
 		case 1:
 			system("cls");
 			break;
+
 		case 2:
 			system("cls");
 			break;
+
 		case 3:
 			system("cls");
 			break;
+
 		case 4:
-			system("cls");
-			break;
-
-		case 5:
-			system("cls");
-			break;
-
-		case 6:
-			system("cls");
-			break;
-
-		case 7:
-			system("cls");
-			break;
-
-		case 8:
 			break;
 
 		default:
@@ -85,7 +75,6 @@ int main()
 			break;
 		}
 	}
-
 	return 0;
 }
 

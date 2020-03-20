@@ -8,7 +8,7 @@ using namespace std;
 class Order
 {
 public:
-	Order(ClientData *dataSh = nullptr, double totalSumSh = 0.0) : data(dataSh), totalSum(totalSumSh) {}
+	Order(ClientData *dataSh = nullptr) : data(dataSh), totalSum(0.0) {}
 	Order(const Order &obj) : data(obj.data), totalSum(obj.totalSum) {}
 
 	void setData(ClientData *data);
