@@ -119,8 +119,13 @@
     <ClCompile Include="Department.cpp" />
     <ClCompile Include="DepartmentManager.cpp" />
     <ClCompile Include="ElectricalDevices.cpp" />
+    <ClCompile Include="Fridge.cpp" />
+    <ClCompile Include="Iron.cpp" />
+    <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Monitor.cpp" />
     <ClCompile Include="Order.cpp" />
+    <ClCompile Include="OrderManager.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="ValidValue.cpp" />
   </ItemGroup>
@@ -129,7 +134,13 @@
     <ClInclude Include="Department.h" />
     <ClInclude Include="DepartmentManager.h" />
     <ClInclude Include="ElectricalDevices.h" />
+    <ClInclude Include="FileManager.h" />
+    <ClInclude Include="Fridge.h" />
+    <ClInclude Include="Iron.h" />
+    <ClInclude Include="Keyboard.h" />
+    <ClInclude Include="Monitor.h" />
     <ClInclude Include="Order.h" />
+    <ClInclude Include="OrderManager.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="ValidValue.h" />
   </ItemGroup>

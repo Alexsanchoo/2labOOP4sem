@@ -15,7 +15,7 @@ public:
 	void setTotalSum(double sum);
 	ClientData* getData();
 	double getTotalSum();
-
+	vector<ElectricalDevices*>& getGoods();
 	~Order() {}
 
 private:

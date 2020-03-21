@@ -1,5 +1,7 @@
 #pragma once
+#include<iostream>
 #include<string>
+#include "ValidValue.h"
 
 using namespace std;
 
@@ -18,7 +20,7 @@ public:
 	string getLastname();
 	string getAdress();
 	int getCardNumber();
-
+	void set();
 	~ClientData() {}
 
 private:

@@ -19,3 +19,10 @@ int DepartmentManager::showGoods(Department & obj)
 	}
 	return 1;
 }
+
+ElectricalDevices * DepartmentManager::removeGood(int index, Department & obj)
+{
+	ElectricalDevices* temp = obj.getGoods()[index];
+	obj.getGoods().erase(obj.getGoods().begin() + index);
+	return temp;
+}

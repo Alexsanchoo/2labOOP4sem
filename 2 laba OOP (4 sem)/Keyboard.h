@@ -4,7 +4,7 @@ class Keyboard :
 	public ElectricalDevices
 {
 public:
-	Keyboard(int countKeySh, string nameSh = "Клавиатруа", double costSh = 78.3, TypeGood typeSh = COMPUTER) :
+	Keyboard(int countKeySh = 102, string nameSh = "Клавиатруа", double costSh = 78.3, TypeGood typeSh = COMPUTER) :
 	ElectricalDevices(nameSh, costSh, typeSh), countKey(countKeySh) {}
 	Keyboard(const Keyboard &obj) :ElectricalDevices(obj), countKey(obj.countKey) {}
 

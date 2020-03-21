@@ -15,11 +15,6 @@ void ElectricalDevices::setType(TypeGood type)
 	this->type = type;
 }
 
-void ElectricalDevices::setCount(int count)
-{
-	this->count = count;
-}
-
 string ElectricalDevices::getName()
 {
 	return name;
@@ -35,7 +30,3 @@ TypeGood ElectricalDevices::getType()
 	return type;
 }
 
-int ElectricalDevices::getCount()
-{
-	return count;
-}

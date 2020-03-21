@@ -11,7 +11,8 @@ public:
 	Shop(const Shop &obj) : name(obj.name), household(obj.household), computer(obj.computer) {}
 	void setName(string name);
 	string getName();
-
+	Department& getHouseholdDep();
+	Department& getComputerDep();
 	~Shop() {}
 
 private:

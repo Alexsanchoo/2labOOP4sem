@@ -4,7 +4,7 @@ class Iron :
 	public ElectricalDevices
 {
 public:
-	Iron(double maxTemp, string nameSh = "Óòþã", double costSh = 120.0, TypeGood typeSh = HOUSEHOLD) :
+	Iron(double maxTemp = 200.0, string nameSh = "Óòþã", double costSh = 120.0, TypeGood typeSh = HOUSEHOLD) :
 	ElectricalDevices(nameSh, costSh, typeSh), maxTemperature(maxTemp) {}
 	Iron(const Iron &obj) : ElectricalDevices(obj), maxTemperature(obj.maxTemperature) {}
 

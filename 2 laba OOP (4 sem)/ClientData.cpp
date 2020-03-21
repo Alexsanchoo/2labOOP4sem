@@ -39,3 +39,11 @@ int ClientData::getCardNumber()
 {
 	return cardNumber;
 }
+
+void ClientData::set()
+{
+	cout << "¬ведите им€: "; name = ValidValue<string>::getInitials();
+	cout << "¬ведите фамилию: "; lastname = ValidValue<string>::getInitials();
+	cout << "¬ведите адрес: "; adress = ValidValue<string>::getString();
+	cout << "¬ведите номер карты: "; cardNumber = ValidValue<>::getValue();
+}

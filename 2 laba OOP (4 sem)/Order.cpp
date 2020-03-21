@@ -27,3 +27,8 @@ double Order::getTotalSum()
 {
 	return totalSum;
 }
+
+vector<ElectricalDevices*>& Order::getGoods()
+{
+	return goods;
+}
