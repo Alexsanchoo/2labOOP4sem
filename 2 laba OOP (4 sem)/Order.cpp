@@ -1,5 +1,13 @@
 #include "Order.h"
 
+Order::Order(const Order & obj) : data(obj.data), totalSum(obj.totalSum)
+{
+	for (size_t i = 0; i < obj.goods.size(); i++)
+	{
+		goods.push_back(obj.goods[i]);
+	}
+}
+
 void Order::setData(ClientData * data)
 {
 	this->data = data;

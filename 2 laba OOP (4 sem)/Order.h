@@ -9,7 +9,7 @@ class Order
 {
 public:
 	Order(ClientData *dataSh = nullptr) : data(dataSh), totalSum(0.0) {}
-	Order(const Order &obj) : data(obj.data), totalSum(obj.totalSum) {}
+	Order(const Order &obj);
 
 	void setData(ClientData *data);
 	void setTotalSum(double sum);

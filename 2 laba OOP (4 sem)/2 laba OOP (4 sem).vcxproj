@@ -117,6 +117,7 @@
   <ItemGroup>
     <ClCompile Include="ClientData.cpp" />
     <ClCompile Include="Department.cpp" />
+    <ClCompile Include="DepartmentImplementation.cpp" />
     <ClCompile Include="ElectricalDevices.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Order.cpp" />
@@ -125,6 +126,8 @@
   <ItemGroup>
     <ClInclude Include="ClientData.h" />
     <ClInclude Include="Department.h" />
+    <ClInclude Include="DepartmentFunctionality.h" />
+    <ClInclude Include="DepartmentImplementation.h" />
     <ClInclude Include="ElectricalDevices.h" />
     <ClInclude Include="Order.h" />
     <ClInclude Include="Shop.h" />

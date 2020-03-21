@@ -17,3 +17,8 @@ string Department::getName()
 {
 	return name;
 }
+
+vector<ElectricalDevices*>& Department::getGoods()
+{
+	return goods;
+}
