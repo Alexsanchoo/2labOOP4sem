@@ -33,7 +33,10 @@
     <ClCompile Include="ClientData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DepartmentImplementation.cpp">
+    <ClCompile Include="DepartmentManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ValidValue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,10 +56,10 @@
     <ClInclude Include="ClientData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DepartmentFunctionality.h">
+    <ClInclude Include="DepartmentManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DepartmentImplementation.h">
+    <ClInclude Include="ValidValue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

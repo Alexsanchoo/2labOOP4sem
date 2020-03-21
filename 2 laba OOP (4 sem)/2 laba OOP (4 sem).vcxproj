@@ -117,20 +117,21 @@
   <ItemGroup>
     <ClCompile Include="ClientData.cpp" />
     <ClCompile Include="Department.cpp" />
-    <ClCompile Include="DepartmentImplementation.cpp" />
+    <ClCompile Include="DepartmentManager.cpp" />
     <ClCompile Include="ElectricalDevices.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Order.cpp" />
     <ClCompile Include="Shop.cpp" />
+    <ClCompile Include="ValidValue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClientData.h" />
     <ClInclude Include="Department.h" />
-    <ClInclude Include="DepartmentFunctionality.h" />
-    <ClInclude Include="DepartmentImplementation.h" />
+    <ClInclude Include="DepartmentManager.h" />
     <ClInclude Include="ElectricalDevices.h" />
     <ClInclude Include="Order.h" />
     <ClInclude Include="Shop.h" />
+    <ClInclude Include="ValidValue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

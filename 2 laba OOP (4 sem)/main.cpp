@@ -1,33 +1,11 @@
 #include<iostream>
 #include<Windows.h>
+#include "ValidValue.h"
 #include "Shop.h"
 #include "ClientData.h"
 #include "Order.h"
 
 using namespace std;
-
-
-//template<typename T>
-//T getValue()
-//{
-//	T k;
-//	while (true)
-//	{
-//		try
-//		{
-//			cin >> k;
-//			cin.ignore(2,'\n');
-//			if (cin.gcount() > 1) throw runtime_error("extra characters");
-//			return k;
-//		}
-//		catch (runtime_error ex)
-//		{
-//			cout << "error: " << ex.what() << endl;
-//			cin.clear();
-//			while (cin.get() != '\n');
-//		}
-//	}
-//}
 
 
 int main()
@@ -36,7 +14,6 @@ int main()
 	SetConsoleOutputCP(1251);
 	cin.exceptions(ios::failbit | ios::badbit);
 	
-
 	Shop shop("Электро-экспресс");
 	ClientData clientData("Василий", "Пупкин", "ул. Пушкина, д. Колотушкина", 228543573);
 	Order order(&clientData);
@@ -51,7 +28,7 @@ int main()
 		cout << "4. Выход." << endl;
 		cout << "~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 		cout << "Сделайте выбор: ";
-		choice = 0; //изменить
+		choice = ValidValue<>::getValue();
 
 		system("cls");
 		switch (choice)
