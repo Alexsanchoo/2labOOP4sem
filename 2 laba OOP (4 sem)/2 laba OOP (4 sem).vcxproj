@@ -128,6 +128,7 @@
     <ClCompile Include="Order.cpp" />
     <ClCompile Include="OrderManager.cpp" />
     <ClCompile Include="Shop.cpp" />
+    <ClCompile Include="ShopManager.cpp" />
     <ClCompile Include="ValidValue.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +144,7 @@
     <ClInclude Include="Order.h" />
     <ClInclude Include="OrderManager.h" />
     <ClInclude Include="Shop.h" />
+    <ClInclude Include="ShopManager.h" />
     <ClInclude Include="ValidValue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
