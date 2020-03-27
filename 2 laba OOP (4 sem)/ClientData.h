@@ -2,6 +2,7 @@
 #include<iostream>
 #include<string>
 #include "ValidValue.h"
+#include "ExpShop.h"
 
 using namespace std;
 

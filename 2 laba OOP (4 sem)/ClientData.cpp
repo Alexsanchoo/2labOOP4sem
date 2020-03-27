@@ -6,7 +6,7 @@ ClientData::ClientData(string nameSh, string lastnameSh, string adressSh, int ca
 {
 	if (name == "Василий" && lastname == "Пупкин")
 	{
-		throw 1;
+		throw ExpShop("error", 2);
 	}
 }
 

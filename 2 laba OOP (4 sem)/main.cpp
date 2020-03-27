@@ -10,6 +10,7 @@
 #include "Keyboard.h"
 #include "DepartmentManager.h"
 #include "OrderManager.h"
+#include "ExpShop.h"
 
 using namespace std;
 
@@ -149,9 +150,9 @@ int main()
 						{
 							cout << "ERROR: " << ex.what() << "!" << endl << endl;
 						}
-						catch (int ex)
+						catch (ExpShop ex)
 						{
-							cout << "В программе запрещено использовать клиента \"Василий Пупкин\"!" << endl << endl;
+							cout << ex.what() << endl << endl;
 						}
 					}
 					else
@@ -175,13 +176,13 @@ int main()
 								ch = ValidValue<>::getValue();
 								if (ch <  1 || ch > shop.getComputerDep().getGoods().size())
 								{
-									throw 1;
+									throw ExpShop("error", 1);
 								}
 								isValidInput = true;
 							}
-							catch (int ex)
+							catch (ExpShop ex)
 							{
-								cout << "Нет такого номер! Введите ещё раз: ";
+								cout << ex.what();
 							}
 						}
 						
@@ -211,13 +212,13 @@ int main()
 								ch = ValidValue<>::getValue();
 								if (ch < 1 || ch > shop.getHouseholdDep().getGoods().size())
 								{
-									throw 1;
+									throw ExpShop("error", 1);
 								}
 								isValidInput = true;
 							}
-							catch (int ex)
+							catch (ExpShop ex)
 							{
-								cout << "Такого номера нет! Введите ещё раз: ";
+								cout << ex.what();
 							}
 						}
 						device = DepartmentManager::removeGood(ch - 1, shop.getHouseholdDep());
@@ -255,13 +256,13 @@ int main()
 								ch = ValidValue<>::getValue();
 								if (ch < 1 || ch > order.getGoods().size())
 								{
-									throw 1;
+									throw ExpShop("error", 1);
 								}
 								isValidInput = true;
 							}
-							catch (int ex)
+							catch (ExpShop ex)
 							{
-								cout << "Такого номера нет! Введите ещё раз: ";
+								cout << ex.what();
 							}
 						}
 
@@ -290,9 +291,8 @@ int main()
 
 				case 6:
 				{
-					if (clientData != nullptr)
+					if (clientData != nullptr && OrderManager::showGoods(order))
 					{
-						OrderManager::showGoods(order);
 						cout << endl;
 						cout << "Общая сумма: " << order.getTotalSum() << "$" << endl;
 						system("pause>>void");
@@ -302,7 +302,7 @@ int main()
 					}
 					else
 					{
-						cout << "Данные о клиенте ещё не заполнены!" << endl << endl;
+						cout << "Список товар пуст или данные о клиенте ещё не заполнены!" << endl << endl;
 					}
 				}
 					break;

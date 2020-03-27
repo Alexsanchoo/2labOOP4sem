@@ -17,17 +17,6 @@ public:
 template<class T>
 inline T ValidValue<T>::getValue()
 {
-	/*T value;
-	cin >> value;
-	while (cin.fail() || cin.get() != '\n')
-	{
-		cout << "ќшибка! ¬ведите ещЄ раз: ";
-		cin.clear();
-		rewind(stdin);
-		cin >> value;
-	}
-	return value;*/
-
 	T value;
 	while (true)
 	{
