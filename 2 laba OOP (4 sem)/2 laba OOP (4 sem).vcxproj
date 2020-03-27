@@ -134,7 +134,6 @@
     <ClInclude Include="Department.h" />
     <ClInclude Include="DepartmentManager.h" />
     <ClInclude Include="ElectricalDevices.h" />
-    <ClInclude Include="FileManager.h" />
     <ClInclude Include="Fridge.h" />
     <ClInclude Include="Iron.h" />
     <ClInclude Include="Keyboard.h" />

@@ -89,9 +89,6 @@
     <ClInclude Include="Keyboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FileManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="OrderManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>

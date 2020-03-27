@@ -1,5 +1,15 @@
 #include "ClientData.h"
 
+
+ClientData::ClientData(string nameSh, string lastnameSh, string adressSh, int cardNumberSh) :
+	name(nameSh), lastname(lastnameSh), adress(adressSh), cardNumber(cardNumberSh)
+{
+	if (name == "¬асилий" && lastname == "ѕупкин")
+	{
+		throw 1;
+	}
+}
+
 void ClientData::setName(string name)
 {
 	this->name = name;
@@ -38,12 +48,4 @@ string ClientData::getAdress()
 int ClientData::getCardNumber()
 {
 	return cardNumber;
-}
-
-void ClientData::set()
-{
-	cout << "¬ведите им€: "; name = ValidValue<string>::getInitials();
-	cout << "¬ведите фамилию: "; lastname = ValidValue<string>::getInitials();
-	cout << "¬ведите адрес: "; adress = ValidValue<string>::getString();
-	cout << "¬ведите номер карты: "; cardNumber = ValidValue<>::getValue();
 }

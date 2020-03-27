@@ -13,13 +13,15 @@
 
 using namespace std;
 
+void term_func();
 
 int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	cin.exceptions(ios::failbit | ios::badbit);
-	
+	set_terminate(term_func);
+
 	Shop shop("Электро-экспресс");
 	ClientData *clientData = nullptr;
 	Order order;
@@ -132,10 +134,25 @@ int main()
 				case 1:
 					if (clientData == nullptr)
 					{
-						clientData = new ClientData();
-						clientData->set();
-						order.setData(clientData);
-						system("cls");
+						try
+						{
+							cout << "Введите имя: ";  string name = ValidValue<string>::getInitials();
+							cout << "Введите фамилию: "; string lastname = ValidValue<string>::getInitials();
+							string adress;
+							cout << "Введите адрес: "; getline(cin, adress);
+							cout << "Введите номер карты: "; int cardNumber = ValidValue<>::getValue();
+							system("cls");
+							clientData = new ClientData(name, lastname, adress, cardNumber);
+							order.setData(clientData);
+						}
+						catch (bad_alloc ex)
+						{
+							cout << "ERROR: " << ex.what() << "!" << endl << endl;
+						}
+						catch (int ex)
+						{
+							cout << "В программе запрещено использовать клиента \"Василий Пупкин\"!" << endl << endl;
+						}
 					}
 					else
 					{
@@ -150,10 +167,25 @@ int main()
 					if (DepartmentManager::showGoods(shop.getComputerDep()))
 					{
 						cout << endl << "Выберите номер товара: ";
-						while (ch < 1 || ch > shop.getComputerDep().getGoods().size())		//ДОБАВИТЬ СЮДА ИСКЛЮЧЕНИЕ
+						bool isValidInput = false;
+						while (!isValidInput)
 						{
-							ch = ValidValue<>::getValue();
+							try
+							{
+								ch = ValidValue<>::getValue();
+								if (ch <  1 || ch > shop.getComputerDep().getGoods().size())
+								{
+									throw 1;
+								}
+								isValidInput = true;
+							}
+							catch (int ex)
+							{
+								cout << "Нет такого номер! Введите ещё раз: ";
+							}
 						}
+						
+
 						device = DepartmentManager::removeGood(ch - 1, shop.getComputerDep());
 						OrderManager::addGood(device, order);
 						system("cls");
@@ -171,10 +203,22 @@ int main()
 					ElectricalDevices* device = nullptr;
 					if (DepartmentManager::showGoods(shop.getHouseholdDep()))
 					{
-						cout << endl << "Выберите номер товара: ";
-						while (ch < 1 || ch > shop.getHouseholdDep().getGoods().size())		//ДОБАВИТЬ СЮДА ИСКЛЮЧЕНИЕ
+						bool isValidInput = false;
+						while (!isValidInput)
 						{
-							ch = ValidValue<>::getValue();
+							try
+							{
+								ch = ValidValue<>::getValue();
+								if (ch < 1 || ch > shop.getHouseholdDep().getGoods().size())
+								{
+									throw 1;
+								}
+								isValidInput = true;
+							}
+							catch (int ex)
+							{
+								cout << "Такого номера нет! Введите ещё раз: ";
+							}
 						}
 						device = DepartmentManager::removeGood(ch - 1, shop.getHouseholdDep());
 						OrderManager::addGood(device, order);
@@ -203,10 +247,24 @@ int main()
 					if (OrderManager::showGoods(order))
 					{
 						cout << "Выберите товар, который хотите убрать: ";
-						while (ch < 1 || ch > order.getGoods().size())
+						bool isValidInput = false;
+						while (!isValidInput)
 						{
-						ch = ValidValue<>::getValue();
+							try
+							{
+								ch = ValidValue<>::getValue();
+								if (ch < 1 || ch > order.getGoods().size())
+								{
+									throw 1;
+								}
+								isValidInput = true;
+							}
+							catch (int ex)
+							{
+								cout << "Такого номера нет! Введите ещё раз: ";
+							}
 						}
+
 						ElectricalDevices* good = OrderManager::removeGood(ch - 1, order);
 						switch (good->getType())
 						{
@@ -232,8 +290,9 @@ int main()
 
 				case 6:
 				{
-					if (OrderManager::showGoods(order) && clientData != nullptr)
+					if (clientData != nullptr)
 					{
+						OrderManager::showGoods(order);
 						cout << endl;
 						cout << "Общая сумма: " << order.getTotalSum() << "$" << endl;
 						system("pause>>void");
@@ -243,7 +302,7 @@ int main()
 					}
 					else
 					{
-						cout << "Список товаров пуст или данные о клиенте ещё не заполнены!" << endl << endl;
+						cout << "Данные о клиенте ещё не заполнены!" << endl << endl;
 					}
 				}
 					break;
@@ -271,4 +330,13 @@ int main()
 
 	delete clientData;
 	return 0;
+}
+
+
+void term_func()
+{
+	system("cls");
+	cout << "Ошибка! Программа завершает свою работу!" << endl;
+	system("pause>>void");
+	exit(0);
 }

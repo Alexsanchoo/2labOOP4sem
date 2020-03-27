@@ -8,8 +8,7 @@ using namespace std;
 class ClientData
 {
 public:
-	ClientData(string nameSh = "", string lastnameSh = "", string adressSh = "", int cardNumberSh = 0 ) : 
-	name(nameSh), lastname(lastnameSh), adress(adressSh), cardNumber(cardNumberSh) {}
+	ClientData(string nameSh = "", string lastnameSh = "", string adressSh = "", int cardNumberSh = 0);
 	ClientData(const ClientData &obj) : name(obj.name), lastname(obj.lastname), adress(obj.adress), cardNumber(obj.cardNumber) {}
 
 	void setName(string name);
@@ -20,7 +19,6 @@ public:
 	string getLastname();
 	string getAdress();
 	int getCardNumber();
-	void set();
 	~ClientData() {}
 
 private:
