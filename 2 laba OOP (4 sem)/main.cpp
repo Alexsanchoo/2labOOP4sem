@@ -113,14 +113,16 @@ int main()
 		case 3:
 		{
 			int ch = 0;
-			while (ch != 5)
+			while (ch != 7)
 			{
 				cout << "Оформление заказа: " << endl;
 				cout << "1. Заполнение личных данных клиента" << endl;
 				cout << "2. Выбрать товар из компьютерного отдела" << endl;
 				cout << "3. Выбрать товар из бытового отдела" << endl;
-				cout << "4. Завершить заказ" << endl;
-				cout << "5. Назад" << endl;
+				cout << "4. Просмотреть выбранные товары" << endl;
+				cout << "5. Убрать товар из заказа" << endl;
+				cout << "6. Завершить заказ" << endl;
+				cout << "7. Назад" << endl;
 				cout << "Сделайте выбор: ";
 				ch = ValidValue<>::getValue();
 
@@ -145,35 +147,90 @@ int main()
 				{
 					int ch = 0;
 					ElectricalDevices *device = nullptr;
-					DepartmentManager::showGoods(shop.getComputerDep());
-					cout << endl << "Выберите номер товара: ";
-					while (ch < 1 || ch > shop.getComputerDep().getGoods().size())		//ДОБАВИТЬ СЮДА ИСКЛЮЧЕНИЕ
+					if (DepartmentManager::showGoods(shop.getComputerDep()))
 					{
-					ch = ValidValue<>::getValue();
+						cout << endl << "Выберите номер товара: ";
+						while (ch < 1 || ch > shop.getComputerDep().getGoods().size())		//ДОБАВИТЬ СЮДА ИСКЛЮЧЕНИЕ
+						{
+							ch = ValidValue<>::getValue();
+						}
+						device = DepartmentManager::removeGood(ch - 1, shop.getComputerDep());
+						OrderManager::addGood(device, order);
+						system("cls");
 					}
-					device = DepartmentManager::removeGood(ch - 1, shop.getComputerDep());
-					OrderManager::addGood(device, order);
+					else
+					{
+						cout << "В компьютерном отделе закончился товар!" << endl << endl;
+					}
 				}
-					system("cls");
 					break;
 
 				case 3:
 				{
 					int ch = 0;
 					ElectricalDevices* device = nullptr;
-					DepartmentManager::showGoods(shop.getHouseholdDep());
-					cout << endl << "Выберите номер товара: ";
-					while (ch < 1 || ch > shop.getHouseholdDep().getGoods().size())		//ДОБАВИТЬ СЮДА ИСКЛЮЧЕНИЕ
+					if (DepartmentManager::showGoods(shop.getHouseholdDep()))
 					{
-						ch = ValidValue<>::getValue();
-					}
-					device = DepartmentManager::removeGood(ch - 1, shop.getHouseholdDep());
-					OrderManager::addGood(device, order);
-				}
+						cout << endl << "Выберите номер товара: ";
+						while (ch < 1 || ch > shop.getHouseholdDep().getGoods().size())		//ДОБАВИТЬ СЮДА ИСКЛЮЧЕНИЕ
+						{
+							ch = ValidValue<>::getValue();
+						}
+						device = DepartmentManager::removeGood(ch - 1, shop.getHouseholdDep());
+						OrderManager::addGood(device, order);
 					system("cls");
+					}
+					else
+					{
+						cout << "В бытовом отделе закончился товар!" << endl << endl;
+					}
+				}
 					break;
 
 				case 4:
+					if (!OrderManager::showGoods(order))
+					{
+						cout << "~~~ЗАКАЗ~~~" << endl;
+						cout << "Нет товаров!" << endl;
+					}
+					system("pause>>void");
+					system("cls");
+					break;
+
+				case 5:
+				{
+					int ch = 0;
+					if (OrderManager::showGoods(order))
+					{
+						cout << "Выберите товар, который хотите убрать: ";
+						while (ch < 1 || ch > order.getGoods().size())
+						{
+						ch = ValidValue<>::getValue();
+						}
+						ElectricalDevices* good = OrderManager::removeGood(ch - 1, order);
+						switch (good->getType())
+						{
+						case HOUSEHOLD:
+							DepartmentManager::addGood(good, shop.getHouseholdDep());
+							break;
+
+						case COMPUTER:
+							DepartmentManager::addGood(good, shop.getComputerDep());
+							break;
+
+						default:
+							break;
+						}
+						system("cls");
+					}
+					else
+					{
+						cout << "В заказе ещё нет товаров!" << endl << endl;
+					}
+				}
+					break;
+
+				case 6:
 				{
 					if (OrderManager::showGoods(order) && clientData != nullptr)
 					{
@@ -181,6 +238,8 @@ int main()
 						cout << "Общая сумма: " << order.getTotalSum() << "$" << endl;
 						system("pause>>void");
 						system("cls");
+						ch = 7;
+						choice = 4;
 					}
 					else
 					{
@@ -189,7 +248,7 @@ int main()
 				}
 					break;
 
-				case 5:
+				case 7:
 					break;
 
 				default:

@@ -16,7 +16,15 @@ int OrderManager::showGoods(Order & obj)
 	cout << "~~~ÇÀÊÀÇ~~~" << endl;
 	for (size_t i = 0; i < obj.getGoods().size(); i++)
 	{
-		cout << i + 1 << ". " << obj.getGoods()[i]->getName() << endl;
+		cout << fixed << setprecision(2) << left << 
+			i + 1 << ". " << setw(15) << obj.getGoods()[i]->getName() << " | " << obj.getGoods()[i]->getCost() << "$" << endl;
 	}
 	return 1;
+}
+
+ElectricalDevices * OrderManager::removeGood(int index, Order & obj)
+{
+	ElectricalDevices* good = obj.getGoods()[index];
+	obj.getGoods().erase(obj.getGoods().begin() + index);
+	return good;
 }

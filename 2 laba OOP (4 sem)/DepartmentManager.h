@@ -1,5 +1,6 @@
 #pragma once
 #include<iostream>
+#include<iomanip>
 #include "ElectricalDevices.h"
 #include"Department.h"
 
